@@ -13,13 +13,12 @@ void loop() {
   // put your main code here, to run repeatedly:
   Serial.println("Silahkan ketik 'w' untuk memutar, 's' untuk berhenti ");
   while(Serial.available() == 0) {
-    
+    motion = Serial.readString();
+    if(motion == "w") {
+      analogWrite(ml,l);
+    } else if(motion == "s") {
+      analogWrite(ml,h);
+    }
   }
-  motion = Serial.readString();
-  if(motion == "w") {
-    analogWrite(ml,l);
-  } 
-  if(motion == "s") {
-    analogWrite(ml,h);
-  }
+  
 }
